@@ -4,7 +4,8 @@ import { FaGoogle ,FaGithub} from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn,signInGoogle } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const location = useLocation();
   console.log(location);
@@ -30,6 +31,18 @@ const Login = () => {
 
         })
       }
+
+      const handleGoogleLogin =()=>{
+        signInGoogle()
+        .then(result=>{
+            const user= result.user;
+            console.log(user);
+            navigate(frome ,{replace : true});
+        })
+        .catch(error=>{
+            console.log(error.message);
+        })
+      }
    
     return (
         <div>
@@ -41,14 +54,14 @@ const Login = () => {
                     <label className="label">
                         <span className="text-base label-text">Email</span>
                     </label>
-                    <input type="text" placeholder="Email Address" name='email'className="w-full input input-bordered" required/>
+                    <input type="text" placeholder="Email Address" name='email'className="w-full input input-bordered" />
                 </div>
                 <div>
                     <label className="label">
                         <span className="text-base label-text">Password</span>
                     </label>
                     <input type="password" placeholder="Enter Password" name='pass'
-                        className="w-full input input-bordered" required/>
+                        className="w-full input input-bordered" />
                 </div>
                
                 <div >
@@ -59,7 +72,7 @@ const Login = () => {
                       <p className='mb-3'>  or login With</p>
                       
                       <div className='flex align-item justify-center '>
-                      <p><FaGoogle className='text-3xl mx-4'/></p>
+                      <button onClick={handleGoogleLogin}><FaGoogle className='text-3xl mx-4'/></button>
                       <p><FaGithub className='text-3xl'/></p>
                       </div>
 
