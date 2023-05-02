@@ -29,7 +29,7 @@ const Header = () => {
     </div>
   </div>
   <div className="navbar-center">
-    <a href='/' className="normal-case font-bold text-xl text-orange-600 italic">Flavour OF Thai - Chef</a>
+    <a href='/' className="normal-case font-bold text-xl text-orange-600 italic">  Flavour OF Thai - Chef</a>
   </div>
   <div className="navbar-end">
   <div >

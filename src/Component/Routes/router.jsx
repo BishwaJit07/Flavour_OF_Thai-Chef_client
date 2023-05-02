@@ -7,16 +7,19 @@ import Home from "../Pages/Home";
 import Login from "../Login/Login"
 import Register from "../Login/Register"
 import About from "../Pages/About"
+import ErrorPage from "../../ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Layout/>,
+      errorElement: <ErrorPage />,
     children:[
        {
          path : '/',
-        element: <Home/>
+        element: <Home/>,
+        loader:()=> ('http://localhost:3000/chef')
 
         },
        {

@@ -1,10 +1,14 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 
 const Home = () => {
+
+ 
+
     return (
         <div>
-          <div className="carousel w-full">
+                <div className="carousel w-full">
   <div id="slide1" className="carousel-item relative w-full">
     <img src="https://media.istockphoto.com/id/1334138116/vector/thai-food-top-view-vector-illustration-food-menu-design-template-hand-drawn-sketch-thai-food.jpg?s=612x612&w=0&k=20&c=v9rGSkBb1Dc0ulnVhrZD1n7_vuNKqbIx-w3H9zioFxA=" />
     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -33,7 +37,9 @@ const Home = () => {
       <a href="#slide1" className="btn btn-circle">❯</a>
     </div>
   </div>
-</div>
+                 </div>
+
+                 
         </div>
     );
 };

@@ -4,13 +4,16 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBIYn--1PAPUiUdm7l1IYmoltRBcBGwp6U",
-  authDomain: "flavour-of-thai.firebaseapp.com",
-  projectId: "flavour-of-thai",
-  storageBucket: "flavour-of-thai.appspot.com",
-  messagingSenderId: "388864527834",
-  appId: "1:388864527834:web:b7b70162a91d793fd544e3"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket:import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
