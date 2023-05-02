@@ -19,7 +19,7 @@ const router = createBrowserRouter([
        {
          path : '/',
         element: <Home/>,
-        loader:()=> ('http://localhost:3000/chef')
+      
 
         },
        {

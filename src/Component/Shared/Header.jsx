@@ -14,7 +14,7 @@ const Header = () => {
         )
   }
     return (
-        <div>
+        <div >
             <div className="navbar bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
@@ -34,12 +34,15 @@ const Header = () => {
   <div className="navbar-end">
   <div >
   <label tabIndex={0} >
-        <div className='flex flex-row'>
+        <div className='flex flex-row '>
           
-          { user && <img className='w-10 rounded-full mx-3' src="/images/stock/photo-1534528741775-53994a69daeb.jpg" /> }
+          <p className='tooltip tooltip-bottom tooltip-success' data-tip={user && user.displayName }>
+          { user && <img className='w-10 rounded-full mx-3' src={user.photoURL } /> }
+          </p>
+          
 
-          {  user ? <button  onClick={handleLogout} className='mx-3'>LogOut</button> : 
-          <Link to='/login'><button >LogIn</button>
+          {  user ? <button  onClick={handleLogout} className='mx-3 btn btn-primary '>LogOut</button> : 
+          <Link to='/login'><button className='btn btn-primary'>LogIn</button>
           </Link>}
         </div>
       </label>

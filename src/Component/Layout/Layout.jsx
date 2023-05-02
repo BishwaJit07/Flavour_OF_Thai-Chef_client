@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Chef from '../../ChefLIst/chef';
 
 
 import Home from '../Pages/Home';
@@ -8,9 +9,13 @@ import Header from '../Shared/Header';
 
 const Layout = () => {
     return (
-        <div>
+        <div >
+           
             <Header/>
-             <Outlet/>
+          
+            <div >
+          <Outlet/>
+            </div>
              <Footer/>
           
         </div>
