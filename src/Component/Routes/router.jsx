@@ -75,13 +75,9 @@ const router = createBrowserRouter([
         {
           path: '/chef/:id',
           element: <RecipeData />,
-          loader: ({ params }) => fetch(`http://localhost:3000/recipe/${params.id}`).then(res => res.json())
+          loader: ({ params }) => fetch(`https://flavor-of-thai-server-bishwajit07.vercel.app/recipe/${params.id}`).then(res => res.json())
         },
-        {
-          path: '/chef/:id/chef-data',
-          element: <ChefData />,
-          loader: ({ params }) => fetch(`http://localhost:3000/chef/${params.id}`).then(res => res.json())
-        }
+      
         
     ]
 

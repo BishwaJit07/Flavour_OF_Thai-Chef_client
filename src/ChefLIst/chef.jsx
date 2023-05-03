@@ -8,21 +8,21 @@ const Chef = () => {
     const [chefs,setChefs] = useState([]);
 
     useEffect(()=>{
-        fetch ('http://localhost:3000/chef/')
+        fetch ('https://flavor-of-thai-server-bishwajit07.vercel.app/chef')
         .then(res => res.json())
         .then(data =>setChefs(data))
         .catch(error=> console.error(error))
     },[])
 
     return (
-        <div className=''> <p className='text-center font-extrabold text-orange-600 text-5xl py-2 m-4 font-serif border-2 border-gray-600'>Some of Our Famous Chef</p>
+        <div className=''> <p className='text-center font-extrabold text-orange-400 text-5xl py-2 m-4 font-serif border-2 border-gray-500'>Some of Our Famous Chef</p>
         
                <div>
                {chefs?.map(chef => (
-                <p key={chef.id}>
+                <div key={chef.id}>
 
-<div className="card card-side  bg-secondary shadow-xl m-8 flex flex-col  md:flex-row lg:flex-row">
-  <figure><img className='w-80 h-80' src={chef.picture} alt="Movie"/></figure>
+<div className="card card-side  bg-gray-600 shadow-xl m-8 flex flex-col  md:flex-row lg:flex-row">
+  <figure><img className='w-80 h-80 p-2 rounded-2xl' src={chef.picture} alt="Movie"/></figure>
   <div className="card-body text-center">
     <div>
     <h2 className="card-title justify-center text-2xl">{chef.name}</h2>
@@ -69,7 +69,7 @@ const Chef = () => {
     </div>
   </div>
 </div> */}
-                </p>
+                </div>
             ))}
                </div>
                <div className="divider"></div>

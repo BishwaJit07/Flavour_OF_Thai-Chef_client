@@ -15,7 +15,7 @@ const Home = () => {
 
                  <div><BgCarousel/></div>
                 <div > <Chef/></div>
-                <div><ChefWork/></div>
+                <div className='mx-4'><ChefWork/></div>
         </div>
     );
 };
