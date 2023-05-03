@@ -8,7 +8,7 @@ const Chef = () => {
     const [chefs,setChefs] = useState([]);
 
     useEffect(()=>{
-        fetch ('https://flavor-of-thai-server-bishwajit07.vercel.app/chef')
+        fetch ('http://localhost:3000/chef/')
         .then(res => res.json())
         .then(data =>setChefs(data))
         .catch(error=> console.error(error))
@@ -21,17 +21,27 @@ const Chef = () => {
                {chefs?.map(chef => (
                 <p key={chef.id}>
 
-<div className="card card-side  bg-base-100 shadow-xl m-8 flex flex-col  md:flex-row lg:flex-row">
+<div className="card card-side  bg-secondary shadow-xl m-8 flex flex-col  md:flex-row lg:flex-row">
   <figure><img className='w-80 h-80' src={chef.picture} alt="Movie"/></figure>
-  <div className="card-body">
-    <h2 className="card-title">{chef.name}</h2>
-    <p > <span className='font-semibold'>Years of exprience:</span> {chef.years_of_experience} Year</p>
+  <div className="card-body text-center">
+    <div>
+    <h2 className="card-title justify-center text-2xl">{chef.name}</h2>
+    </div>
+  <div>
+  <p > <span className='font-semibold '>Years of exprience:</span> {chef.years_of_experience} Year</p>
     <p>
     <span className='font-semibold'>Numbers of recipes: </span>{chef.num_recipes}
     </p>
     <p><span className='font-semibold'>Gender: </span>{chef.gender}</p>
-   
-        <div className='flex'><BiLike/><p>{chef.likes}</p></div>
+    <p className='flex justify-center'><BiLike/>{chef.likes}</p>
+
+    <p>{chef.recipe?.map(item=>(
+      <p key={item.map}>
+        <p>Recipe:{item.name}</p>
+      </p>
+    ))}</p>
+  </div>
+       
        
    
     <div className="card-actions justify-center">

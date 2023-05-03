@@ -8,6 +8,10 @@ import Login from "../Login/Login"
 import Register from "../Login/Register"
 import About from "../Pages/About"
 import ErrorPage from "../../ErrorPage/ErrorPage";
+import Chef from "../../ChefLIst/chef";
+import ChefData from "../../ChefLIst/RecipeData";
+import RecipeData from "../../ChefLIst/RecipeData";
+import Blogs from "../Pages/Blogs";
 
 
 const router = createBrowserRouter([
@@ -33,10 +37,52 @@ const router = createBrowserRouter([
 
         },
        {
-         path : '/about',
-        element: <About/>
+         path : '/blogs',
+        element: <Blogs/>
 
         },
+        // {
+        //   path: '/chef/:id',
+        //   element: <RecipeData/>,
+        //   loader: ({params})=>fetch(`http://localhost:3000/recipe/${params.id}`)
+        // },
+        
+        // {
+        //   path: '/chef/:id',
+        //   element: <ChefData/>,
+        //   loader: ({params})=>fetch(`http://localhost:3000/chef/${params.id}`)
+        // },
+
+        // {
+        //   path: '/chef/:id',
+        //   element: (
+        //     <>
+        //       <RecipeData />
+        //       <ChefData />
+        //     </>
+        //   ),
+        //   loader: async ({ params }) => {
+        //     const recipeResponse = await fetch(`http://localhost:3000/recipe/${params.id}`);
+        //     const recipeData = await recipeResponse.json();
+            
+        //     const chefResponse = await fetch(`http://localhost:3000/chef/${params.id}`);
+        //     const chefData = await chefResponse.json();
+            
+        //     return { recipeData, chefData };
+        //   },
+        // }
+
+        {
+          path: '/chef/:id',
+          element: <RecipeData />,
+          loader: ({ params }) => fetch(`http://localhost:3000/recipe/${params.id}`).then(res => res.json())
+        },
+        {
+          path: '/chef/:id/chef-data',
+          element: <ChefData />,
+          loader: ({ params }) => fetch(`http://localhost:3000/chef/${params.id}`).then(res => res.json())
+        }
+        
     ]
 
 
