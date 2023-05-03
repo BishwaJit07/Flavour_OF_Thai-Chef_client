@@ -1,12 +1,27 @@
+import jsPDF from 'jspdf';
 import React from 'react';
-import { Document, Page } from 'react-pdf';
+
 
 const Blogs = () => {
-    
+    const handleDownload = () => {
+        
+        const element = document.getElementById('my-component');
+        
+        const doc = new jsPDF({
+            format: [element.offsetWidth, element.offsetHeight]
+          });
+          
+        doc.html(element, {
+            'source': 'HTML',
+          callback: function () {
+            doc.save('my-document.pdf');
+          }
+        });
+      };
     return (
-        <div>
+        <div id="my-component">
         <div className='text-center mt-10 text-white text-2xl font-semibold h-20 bg-gradient-to-r from-sky-500 to-indigo-500 p-4'>
-      <p >  Question & Answer <br /><button className="badge badge-success badge-outline">Download Pdf</button></p>
+      <p >  Question & Answer <br /><button onClick={handleDownload} className="badge badge-success badge-outline">Download Pdf</button></p>
     </div>
         <div className='m-4 bg-slate-500 text-white p-2 rounded-xl'> 
             <h2 className='font-bold text-2xl'>a. Tell us the differences between uncontrolled and controlled components.
