@@ -2,8 +2,9 @@ import React from 'react';
 
 const ChefWork = () => {
     return (
-        <div>
+        <div> <h3 className='text-gray-100 text-center text-2xl font-bold'>Chef Work's</h3>
             <div className="carousel w-50 h-40% m-4">
+             
   <div id="slide1" className="carousel-item relative w-full">
     <img className='w-full h-50%' src="https://wallpaperaccess.com/full/2006005.jpg" />
     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BiLike } from 'react-icons/bi';
-import { FaEye } from 'react-icons/fa';
+import { FaBookmark, FaEye } from 'react-icons/fa';
 import { useLoaderData, useParams } from 'react-router-dom';
-import ChefData from './ChefData';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+
 
 const RecipeData = ({}) => {
+  const [btnDisabled, setBtnDisabled] = useState(false);
+
+  const notify = () => {toast("Yuup! The recipe is your favorite");
+  setBtnDisabled(true);
+}
+ 
+
     const {id}=useParams();
     const recipeData = useLoaderData();
     console.log(recipeData);
@@ -22,6 +31,7 @@ const RecipeData = ({}) => {
 '>{recipe.chef[0].des}</p>
     <p className='flex justify-center text-xl  '><BiLike/>{recipe.chef[0].likes}</p>
     <p  className="badge badge-success badge-outline "><span>Number Of recipe: </span>{recipe.chef[0].num_recipes}</p>
+    <p  className="badge badge-success badge-outline "><span>Experience: </span> {recipe.chef[0].years_of_experience} Years</p>
     <p className='text-xl pt-2'>{recipe.chef[0].workplace_name}</p>
     <hr className='border-slate-400 my-2' />
   </div>
@@ -33,7 +43,13 @@ const RecipeData = ({}) => {
     <h2 className="card-title ">{recipe.name}</h2>
     <p><span className='text-xl font-bold text-green-400'>Ingredients: </span>{recipe.ingredients}</p>
     <p><span className='text-xl font-bold text-green-400'>Way of Making: </span>{recipe.way_of_making}</p>
+    
+    <div>
     <p className=' flex justify-center '><FaEye/>{recipe.views}</p>
+   <div> 
+    <p className='btn' onClick={notify} disabled={btnDisabled}>{<FaBookmark/>}</p> <ToastContainer />
+    </div>
+    </div>
   </div>
 </div> 
 

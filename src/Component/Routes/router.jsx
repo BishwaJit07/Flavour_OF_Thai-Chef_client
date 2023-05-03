@@ -12,6 +12,7 @@ import Chef from "../../ChefLIst/chef";
 import ChefData from "../../ChefLIst/RecipeData";
 import RecipeData from "../../ChefLIst/RecipeData";
 import Blogs from "../Pages/Blogs";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -74,7 +75,7 @@ const router = createBrowserRouter([
 
         {
           path: '/chef/:id',
-          element: <RecipeData />,
+          element: <PrivateRoute><RecipeData></RecipeData></PrivateRoute>,
           loader: ({ params }) => fetch(`https://flavor-of-thai-server-bishwajit07.vercel.app/recipe/${params.id}`).then(res => res.json())
         },
       

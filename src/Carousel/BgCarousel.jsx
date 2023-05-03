@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProvider';
 
 const BgCarousel = () => {
+  const {user}= useContext(AuthContext);
     const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
@@ -24,14 +28,19 @@ const BgCarousel = () => {
       style={{ backgroundImage: `url("${images[currentImage]}")` }}
     >
       <div className="hero-overlay bg-opacity-60"></div>
-      <div className="hero-content text-center text-neutral-content">
+      <div className="hero-content text-center ">
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl font-bold">Hello there </h1>
           <p className="mb-5">
             Looking For Best Thai Food? why not
             Chek out our Famous chefs Famous Recipe?
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          {user ? (
+      <p className='text-xl font-bold'>Welcome <span className='text-secondary text-2xl'>{user.displayName}</span> !</p>
+    ) : (
+      <Link to='/login' className="btn btn-primary">Get Started</Link>
+    )}
+  
         </div>
       </div>
     </div>

@@ -41,7 +41,7 @@ const Register = () => {
     return (
         <div>
              <div className="relative flex flex-col justify-center h-screen overflow-hidden">
-        <div className="w-full p-6 m-auto bg-white rounded-md shadow-md ring-2 ring-gray-800/50 lg:max-w-lg">
+        <div className="w-full p-6 m-auto bg-gray-400 rounded-md shadow-md ring-2 ring-gray-800/50 lg:max-w-lg">
             <h1 className="text-3xl font-semibold text-center text-gray-700">Please Register</h1>
             <form className="space-y-4" onSubmit={handleReg}>
                 <div>
@@ -72,7 +72,7 @@ const Register = () => {
                
                 <div >
                     <button className="btn btn-block">Register</button>
-                    <p className="text-xs text-gray-600 ">Already have a account? <Link to='/login' className='text-blue-700 hover:underline hover:text-blue-600'>Login</Link> </p>
+                    <p className="text-xl text-gray-100 ">Already have a account? <Link to='/login' className='text-blue-600 hover:underline hover:text-red-600'>Login</Link> </p>
                      <p className='text-red-500'>{error}</p>
                   
                 </div>
