@@ -1,10 +1,12 @@
 import React from 'react';
+import { Document, Page } from 'react-pdf';
 
 const Blogs = () => {
+    
     return (
         <div>
         <div className='text-center mt-10 text-white text-2xl font-semibold h-20 bg-gradient-to-r from-sky-500 to-indigo-500 p-4'>
-      <p >  Question & Answer</p>
+      <p >  Question & Answer <br /><button className="badge badge-success badge-outline">Download Pdf</button></p>
     </div>
         <div className='m-4 bg-slate-500 text-white p-2 rounded-xl'> 
             <h2 className='font-bold text-2xl'>a. Tell us the differences between uncontrolled and controlled components.

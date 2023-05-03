@@ -1,3 +1,4 @@
+import moment from 'moment/moment';
 import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -40,7 +41,8 @@ const BgCarousel = () => {
     ) : (
       <Link to='/login' className="btn btn-primary">Get Started</Link>
     )}
-  
+  <p className='pt-5'>{moment().format("dddd [the] Do [of] MMMM ,  h:mm:ss a")} <br />
+  Time wait for none, <span className='text-blue-500 text-2xl font-bold'>Learn,Make & Eat</span> </p>
         </div>
       </div>
     </div>
