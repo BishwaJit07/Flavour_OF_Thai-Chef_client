@@ -19,6 +19,7 @@ const router = createBrowserRouter([
     {
       path: "/",
       element: <Layout/>,
+      exact: true,
       errorElement: <ErrorPage />,
     children:[
        {
@@ -42,36 +43,7 @@ const router = createBrowserRouter([
         element: <Blogs/>
 
         },
-        // {
-        //   path: '/chef/:id',
-        //   element: <RecipeData/>,
-        //   loader: ({params})=>fetch(`http://localhost:3000/recipe/${params.id}`)
-        // },
-        
-        // {
-        //   path: '/chef/:id',
-        //   element: <ChefData/>,
-        //   loader: ({params})=>fetch(`http://localhost:3000/chef/${params.id}`)
-        // },
-
-        // {
-        //   path: '/chef/:id',
-        //   element: (
-        //     <>
-        //       <RecipeData />
-        //       <ChefData />
-        //     </>
-        //   ),
-        //   loader: async ({ params }) => {
-        //     const recipeResponse = await fetch(`http://localhost:3000/recipe/${params.id}`);
-        //     const recipeData = await recipeResponse.json();
-            
-        //     const chefResponse = await fetch(`http://localhost:3000/chef/${params.id}`);
-        //     const chefData = await chefResponse.json();
-            
-        //     return { recipeData, chefData };
-        //   },
-        // }
+     
 
         {
           path: '/chef/:id',
