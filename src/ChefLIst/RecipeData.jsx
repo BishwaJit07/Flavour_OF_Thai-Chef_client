@@ -45,17 +45,20 @@ const RecipeData = ({}) => {
   </div>
   
 ) : null}
-                <div className="card card-compact  bg-gray-500 shadow-xl m-4 h-5/6 w-5/6 text-center" >
+
+         {/* recipe  */}
+
+                <div className="card card-compact  bg-gray-500 shadow-xl m-4 h-5/6 w-5/6 lg:w-3/4 text-center" >
                  
   <figure><img src={recipe.image} className='p-2 rounded-2xl h-2/4 w-full' /></figure>
   <div className="card-body flex flex-col items-center">
   <h2 className="card-title text-3xl font-bold mb-4 text-white">{recipe.name}</h2>
-    <p><span className='text-xl font-bold text-green-400'>Ingredients: </span>
+    <div><span className='text-xl font-bold text-green-400'>Ingredients: </span>
     <ul >
     {recipe.ingredients.map((ingredient, index) => (
       <li key={index} className='flex justify-center '><FaHandPointRight className='m-2'/>{ingredient}</li>
     ))}
-  </ul></p>
+  </ul></div>
     <p><span className='text-xl font-bold text-green-400'>Way of Making: </span>{recipe.way_of_making}</p>
     
     <div>
