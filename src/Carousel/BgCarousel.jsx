@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
+import { SiWelcometothejungle } from "react-icons/si";
 
 const BgCarousel = () => {
   const {user}= useContext(AuthContext);
@@ -31,18 +32,18 @@ const BgCarousel = () => {
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center ">
         <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">Hello there </h1>
+          <h1 className="mb-5 text-3xl font-bold ">Hello <span className='text-secondary text-5xl '>{user?.displayName}</span> ! </h1>
           <p className="mb-5">
             Looking For Best Thai Food? why not
             Chek out our Famous chefs Famous Recipe?
           </p>
           {user ? (
-      <p className='text-xl font-bold'>Welcome <span className='text-secondary text-2xl'>{user.displayName}</span> !</p>
+      <p className='text-2xl font-bold flex justify-center'><SiWelcometothejungle/>elcome</p>
     ) : (
       <Link to='/login' className="btn btn-primary">Get Started</Link>
     )}
   <p className='pt-5'>{moment().format("dddd [the] Do [of] MMMM ,  h:mm:ss a")} <br />
-  Time wait for none, <span className='text-blue-500 text-2xl font-bold'>Learn,Make & Eat</span> </p>
+  Time wait for none, <span className=' text-orange-400  text-2xl font-bold'>Learn,Make & Eat</span> </p>
         </div>
       </div>
     </div>

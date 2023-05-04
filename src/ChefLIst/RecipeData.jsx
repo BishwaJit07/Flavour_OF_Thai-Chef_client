@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BiLike } from 'react-icons/bi';
-import { FaBookmark, FaEye, FaHeart } from 'react-icons/fa';
+import { FaBookmark, FaEye, FaHandPointRight, FaHeart } from 'react-icons/fa';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
@@ -8,10 +8,17 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const RecipeData = ({}) => {
   const [btnDisabled, setBtnDisabled] = useState(false);
+  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
 
-  const notify = () => {toast("Yuup! The recipe is your favorite");
-  setBtnDisabled(true);
-}
+  const addToFavorites = (recipe) => {
+    setFavoriteRecipes([...favoriteRecipes, recipe.r_id]);
+  };
+
+  const notify = (recipe) => {
+    addToFavorites(recipe);
+    setBtnDisabled(favoriteRecipes.includes(recipe.r_id));
+    toast("Yup! The recipe is your favorite.");
+  };
  
 
     const {id}=useParams();
@@ -38,18 +45,23 @@ const RecipeData = ({}) => {
   </div>
   
 ) : null}
-                <div className="card card-compact w-1/2 bg-gray-500 shadow-xl my-4">
+                <div className="card card-compact  bg-gray-500 shadow-xl m-4 h-5/6 w-5/6 text-center" >
                  
-  <figure><img src={recipe.image}  /></figure>
-  <div className="card-body">
-    <h2 className="card-title ">{recipe.name}</h2>
-    <p><span className='text-xl font-bold text-green-400'>Ingredients: </span>{recipe.ingredients}</p>
+  <figure><img src={recipe.image} className='p-2 rounded-2xl h-2/4 w-full' /></figure>
+  <div className="card-body flex flex-col items-center">
+  <h2 className="card-title text-3xl font-bold mb-4 text-white">{recipe.name}</h2>
+    <p><span className='text-xl font-bold text-green-400'>Ingredients: </span>
+    <ul >
+    {recipe.ingredients.map((ingredient, index) => (
+      <li key={index} className='flex justify-center '><FaHandPointRight className='m-2'/>{ingredient}</li>
+    ))}
+  </ul></p>
     <p><span className='text-xl font-bold text-green-400'>Way of Making: </span>{recipe.way_of_making}</p>
     
     <div>
     <p className=' flex justify-center '><FaEye/>{recipe.views}</p>
    <div> 
-    <p className='btn' onClick={notify} disabled={btnDisabled}>{<FaHeart/>}</p> <ToastContainer />
+    <p className='btn' onClick={() => notify(recipe)} disabled={favoriteRecipes.includes(recipe.r_id)}>{<FaHeart/>}</p> <ToastContainer />
     </div>
     </div>
   </div>

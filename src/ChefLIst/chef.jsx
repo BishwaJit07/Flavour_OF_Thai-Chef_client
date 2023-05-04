@@ -8,24 +8,24 @@ const Chef = () => {
     const [chefs,setChefs] = useState([]);
 
     useEffect(()=>{
-        fetch ('https://flavor-of-thai-server-bishwajit07.vercel.app/chef')
+        fetch ('https://flavor-of-thai-server-bishwajit07.vercel.app/chef/0')
         .then(res => res.json())
         .then(data =>setChefs(data))
         .catch(error=> console.error(error))
     },[])
 
     return (
-        <div className=''> <p className='text-center font-extrabold text-orange-400 text-5xl py-2 m-4 font-serif border-2 border-gray-500'>Some of Our Famous Chef</p>
+        <div > <p className='text-center font-extrabold text-orange-400 text-5xl py-2 m-4 font-serif border-2 border-gray-500'>Some of Our Famous Chef</p>
         
-               <div>
+               <div className=' flex flex-col justify-center items-center'>
                {chefs?.map(chef => (
-                <div key={chef.id}>
+                <div key={chef.id}  className='h-4/6 w-4/6'>
 
-<div className="card card-side  bg-gray-600 shadow-xl m-8 flex flex-col  md:flex-row lg:flex-row">
+<div className="card card-side  bg-gray-600 shadow-xl m-8 flex flex-col   md:flex-row lg:flex-row">
   <figure><img className='w-80 h-80 p-2 rounded-2xl' src={chef.picture} alt="Movie"/></figure>
   <div className="card-body text-center">
     <div>
-    <h2 className="card-title justify-center text-2xl">{chef.name}</h2>
+    <h2 className="card-title justify-center text-2xl text-success">{chef.name}</h2>
     </div>
   <div>
   <p > <span className='font-semibold '>Years of exprience:</span> {chef.years_of_experience} Year</p>

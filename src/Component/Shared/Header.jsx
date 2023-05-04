@@ -42,8 +42,10 @@ const Header = () => {
 </li>
       </ul>
     </div>
+    <Link href='/' className="font-bold text-3xl text-white italic tracking-widest sm:p-0 lg:px-2">
+  Flavour <span className="text-yellow-400">OF </span><span className="text-red-400">Thai </span><span className="text-green-400">-</span><span className="text-blue-400"> Chef</span>
+</Link>
 
-    <Link href='/' className="normal-case font-bold text-xl text-accent italic ms-2">  Flavour OF Thai - Chef</Link>
 
     
   </div>
