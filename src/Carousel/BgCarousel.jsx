@@ -31,7 +31,8 @@ const BgCarousel = () => {
     >
       <div className="hero-overlay bg-opacity-60 "></div>
       <div className="hero-content text-center ">
-        <div className="max-w-md ">
+        <div className="max-w-md flex flex-col items-center justify-center">
+        { user && <img className='w-20 rounded-full mx-3' src={user.photoURL } /> }
           <h1 className="mb-5 text-3xl font-bold ">Hello <span className='text-secondary text-5xl '>{user?.displayName}</span> ! </h1>
           <p className="mb-5">
             Looking For Best Thai Food? why not

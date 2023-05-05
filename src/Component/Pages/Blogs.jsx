@@ -19,7 +19,7 @@ const Blogs = () => {
         });
       };
     return (
-        <div id="my-component">
+        <div id="my-component" >
         <div className='text-center mt-10 text-white text-2xl font-semibold h-20 bg-gradient-to-r from-sky-500 to-indigo-500 p-4'>
       <p >  Question & Answer <br /><button onClick={handleDownload} className="badge badge-success badge-outline">Download Pdf</button></p>
     </div>

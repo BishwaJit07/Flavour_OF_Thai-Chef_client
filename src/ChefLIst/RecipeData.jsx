@@ -34,18 +34,28 @@ const RecipeData = ({}) => {
 
  {/* <ChefData/> */}
  {recipeData?.map(recipe=>(
+  
 <div key={recipe.name} style={{ display: 'flex ', flexDirection: 'column', alignItems: 'center' }}>   {recipe?.chef?.[0] ? (
-  <div className='text-center p-4  '>
-    <img src={recipe.chef[0].picture} alt="" className='rounded-full w-80 h-64 mx-auto' />
-    <p className='font-bold text-3xl text-accent '>{recipe.chef[0].name}</p>
-    <p className='font-serif text-2xl py-2
+  <div className='text-center p-4 w-3/4' style={{backgroundImage: `url(https://i.ibb.co/THZBLPw/20230505-195535-1.jpg)` , backgroundRepeat: 'no-repeat' ,backgroundSize: 'cover',  borderRadius: '5%'}} >
+   <div>
+ <img src={recipe.chef[0].picture} alt="" className='rounded-full w-80 h-64 mx-auto ring ring-blue-700 ring-offset-blue-600 ring-offset-4' />
+ 
+   <div className='bg-gradient-to-r from-neutral-500 via-stone-500 to-neutral-600 rounded-xl p-2 my-2'>
+   <p className='font-bold text-3xl text-accent '>{recipe.chef[0].name} </p>
+   
+    <p className='font-serif text-2xl py-2 text-center text-white font-semibold 
 '>{recipe.chef[0].des}</p>
+<hr className='border-slate-400 my-2' />
     <p className='flex justify-center text-xl  '><BiLike/>{recipe.chef[0].likes}</p>
     <p  className="badge badge-success badge-outline "><span>Number Of recipe: </span>{recipe.chef[0].num_recipes}</p>
     <p  className="badge badge-success badge-outline "><span>Experience: </span> {recipe.chef[0].years_of_experience} Years</p>
     <p className='text-xl pt-2'><span className='font-bold'>Currently working in :</span> {recipe.chef[0].workplace_name}</p>
     <hr className='border-slate-400 my-2' />
-    <p className='text-2xl font-bold text-secondary'>Here Is some Favourite recipe of our beloved Chef</p>
+   </div>
+    
+
+   </div>
+   
   </div>
   
 ) : null}</div>))}
@@ -54,8 +64,10 @@ const RecipeData = ({}) => {
 
 
     {/* recipe  */}
+
+    <p className='text-2xl font-bold text-white text-center p-4 m-4 bg-pink-700 rounded-xl'>Here Is some Favourite recipe of our beloved Chef</p>
 <div className='grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4 md:gap-6'>
-     
+
              {recipeData?.map(recipe=>( <div key={recipe.name} style={{ display: 'flex ', flexDirection: 'column', alignItems: 'center' }} >
 
 

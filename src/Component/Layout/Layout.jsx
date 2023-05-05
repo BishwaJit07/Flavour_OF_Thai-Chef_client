@@ -13,9 +13,9 @@ const Layout = () => {
            
             <Header/>
           
-            <div >
+           
           <Outlet/>
-            </div>
+           
              <Footer/>
           
         </div>

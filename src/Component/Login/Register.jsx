@@ -8,7 +8,7 @@ const Register = () => {
 
       const [error,setError]= useState();
 
-       const [accept, setAccept] = useState(false);
+       
      
        const navigate = useNavigate();
        const frome = location.state?.from?.pathname || "/"

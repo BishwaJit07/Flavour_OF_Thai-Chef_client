@@ -20,7 +20,7 @@ const Header = () => {
         <div >
           
 
-<div >
+<div  >
         <nav className="navbar  bg-neutral">
   <div className="navbar-start  ">
   <div className="dropdown lg:hidden">
@@ -79,7 +79,7 @@ const Header = () => {
     </div>
   
   <div className="navbar-end mr-5">
-  <div className='flex flex-row '>
+  <div className='flex flex-col items-center justify-center md:flex-row lg:flex-row '>
           
           <div className='tooltip tooltip-bottom tooltip-success' data-tip={user && user.displayName }>
           { user && <img className='w-10 rounded-full mx-3' src={user.photoURL } /> }
