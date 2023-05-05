@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
@@ -13,6 +13,9 @@ const Header = () => {
           console.log(error)
         )
   }
+  
+   
+
     return (
         <div >
           
@@ -78,14 +81,14 @@ const Header = () => {
   <div className="navbar-end mr-5">
   <div className='flex flex-row '>
           
-          <p className='tooltip tooltip-bottom tooltip-success' data-tip={user && user.displayName }>
+          <div className='tooltip tooltip-bottom tooltip-success' data-tip={user && user.displayName }>
           { user && <img className='w-10 rounded-full mx-3' src={user.photoURL } /> }
-          </p>
+          </div>
           
 
-          {  user ? <button  onClick={handleLogout} className='mx-3 btn btn-primary '>LogOut</button> : 
+        <div>  {  user ? <button  onClick={handleLogout} className='mx-3 btn btn-primary '>LogOut</button> : 
           <Link to='/login'><button className='btn btn-primary'>LogIn</button>
-          </Link>}
+          </Link>}</div>
         </div>
   </div>
 </nav><hr className='border-slate-400 my-2' />

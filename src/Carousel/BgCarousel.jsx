@@ -29,9 +29,9 @@ const BgCarousel = () => {
       className="hero min-h-screen"
       style={{ backgroundImage: `url("${images[currentImage]}")` }}
     >
-      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-overlay bg-opacity-60 "></div>
       <div className="hero-content text-center ">
-        <div className="max-w-md">
+        <div className="max-w-md ">
           <h1 className="mb-5 text-3xl font-bold ">Hello <span className='text-secondary text-5xl '>{user?.displayName}</span> ! </h1>
           <p className="mb-5">
             Looking For Best Thai Food? why not
